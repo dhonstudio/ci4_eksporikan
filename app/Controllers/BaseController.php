@@ -43,7 +43,7 @@ abstract class BaseController extends Controller
      *
      * @var string
      */
-    protected $base_url = ENVIRONMENT == 'development' ? 'http://localhost/ci4_first'
+    protected $base_url = ENVIRONMENT == 'development' ? 'http://localhost/ci4_eksporikan'
         : (ENVIRONMENT == 'testing' ? 'http://dev.domain.com/ci4/...' : 'https://domain.com/ci4/...');
 
     /**
