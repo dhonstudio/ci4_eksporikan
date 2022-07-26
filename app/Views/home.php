@@ -8,7 +8,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <i class="fa fa-line-chart"></i>
+                <i class="fa fa-tint"></i>
                 Digital Trend
             </a>
 
