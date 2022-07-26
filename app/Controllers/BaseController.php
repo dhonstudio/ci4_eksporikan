@@ -117,8 +117,9 @@ abstract class BaseController extends Controller
         // E.g.: $this->session = \Config\Services::session();
 
         $this->data = [
-            'base_url'  => $this->base_url,
-            'assets'    => $this->assets,
+            'base_url'      => $this->base_url,
+            'assets'        => $this->assets,
+            'git_assets'    => $this->git_assets,
 
             // ==================================== MUST BE SET ====================================
             'lang'      => null, // default is `en`
