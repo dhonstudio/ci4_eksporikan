@@ -40,62 +40,55 @@ abstract class BaseController extends Controller
     protected $helpers = [];
 
     /**
-     * ==================================== MUST BE SET ====================================
-     * Base URL.
-     *
-     * @var string
-     */
-    protected $base_url =
-    ENVIRONMENT == 'development' ? 'http://localhost/ci4_eksporikan'
-        : (ENVIRONMENT == 'testing' ? 'http://dev.dhonstudio.com/ci4/eksporikan'
-            : (ENVIRONMENT == 'production' ? 'https://domain.com/ci4/...' : ''));
-
-    /**
-     * ==================================== MUST BE SET ====================================
      * Assets path.
      *
      * @var string
      */
-    protected $assets =
-    ENVIRONMENT == 'development' ? 'http://localhost/assets/' // for development assets
-        : 'https://dhonstudio.com/assets/'; // for testing and production assets in cloud
+    protected $assets = 'http://localhost/assets/';
 
     /**
-     * ==================================== MUST BE SET ====================================
      * Git assets path.
      *
      * @var string
      */
-    protected $git_assets =
-    ENVIRONMENT == 'development' ? '/../../../assets/'
-        : (ENVIRONMENT == 'testing' ? '/../../../../../assets/'
-            : (ENVIRONMENT == 'production' ? '/../../../../assets/' : ''));
+    protected $git_assets = '/../../../assets/';
 
     /**
-     * ==================================== MUST BE SET ====================================
-     * Enabler/disabler page hit traffic.
+     * API URL.
+     *
+     * @var string
+     */
+    protected $api_url = 'http://localhost/ci4_api2/';
+
+    /**
+     * API auth if use basic auth.
+     *
+     * @var string[]
+     */
+    protected $api_auth = ['dev_username', 'dev_password'];
+
+    /**
+     * Enabler page hit traffic.
      *
      * @var boolean
      */
     protected $hit_traffic = true;
 
     /**
-     * ==================================== MUST BE RUN ====================================
-     * Dhon Studio library for create page hit traffic.
-     * Run `git clone https://github.com/dhonstudio/ci4_libraries.git` in your git assets path.
-     *
-     * @var DhonHit
-     */
-    protected $dhonhit;
-
-    /**
-     * ==================================== MUST BE RUN ====================================
      * Dhon Studio library for connect API.
      * Run `git clone https://github.com/dhonstudio/ci4_libraries.git` in your git assets path.
      *
      * @var DhonRequest
      */
     protected $dhonrequest;
+
+    /**
+     * Dhon Studio library for create page hit traffic.
+     * Run `git clone https://github.com/dhonstudio/ci4_libraries.git` in your git assets path.
+     *
+     * @var DhonHit
+     */
+    protected $dhonhit;
 
     /**
      * Default data for Views.
@@ -116,12 +109,12 @@ abstract class BaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
 
-        $this->data = [
-            'base_url'      => $this->base_url,
-            'assets'        => $this->assets,
-            'git_assets'    => $this->git_assets,
+        $this->_initLibraries([
+            'dhonrequest_version'   => "1.0.0",
+            'dhonhit_version'       => "1.0.0",
+        ]);
 
-            // ==================================== MUST BE SET ====================================
+        $this->data = [
             'lang'      => null, // default is `en`
             'meta'      => [
                 'keywords'      => 'dhon studio, dhonstudio, dhonstudio.com',
@@ -133,7 +126,6 @@ abstract class BaseController extends Controller
             'favicon'   => $this->assets . "img/icon.ico",
             'title'     => 'My Landing Page by Dhon Studio', // default is `Home`
 
-            // ==================================== MUST BE SET ====================================
             'email'         => 'admin@dhonstudio.com',
             'whatsapp'      => '62 877 00 8899 13',
             'whatsapp_link' => 'https://wa.me/6287700889913',
@@ -141,29 +133,35 @@ abstract class BaseController extends Controller
             'instagram'     => 'https://instagram.com/dhonstudio',
         ];
 
+        $this->_initData();
+    }
+
+    /**
+     * Initialize additional libraries.
+     */
+    private function _initLibraries($params)
+    {
+        require __DIR__ . $this->git_assets . 'ci4_libraries/DhonRequest-' . $params['dhonrequest_version'] . '.php';
+        $this->dhonrequest = new DhonRequest([
+            'api_url'   => $this->api_url,
+            'api_auth'  => $this->api_auth,
+        ]);
+
         if ($this->hit_traffic) {
-            require __DIR__ . $this->git_assets . 'ci4_libraries/DhonHit.php';
+            require __DIR__ . $this->git_assets . 'ci4_libraries/DhonHit-' . $params['dhonhit_version'] . '.php';
+            $this->dhonhit = new DhonHit();
 
-            // ==================================== MUST BE SET ====================================
-            // If API has basic auth.
-            $auth = ENVIRONMENT == 'production' ? ['prod_username', 'prod_password'] : ['dev_username', 'dev_password'];
-
-            // ==================================== MUST BE SET ====================================
-            $this->dhonhit = new DhonHit([
-                'api_url'   => [
-                    'development'   => 'http://localhost/ci4_api2/',
-                    'testing'       => 'http://dev.dhonstudio.com/ci4/api2/',
-                    'production'    => 'https://domain.com/ci4/service/',
-                ],
-                'auth'      => $auth,
-            ]);
-            $this->dhonhit->base_url = $this->base_url;
+            $this->dhonhit->dhonrequest = $this->dhonrequest;
             $this->dhonhit->collect();
-
-            $this->dhonrequest = $this->dhonhit->dhonrequest;
-        } else {
-            require __DIR__ . $this->git_assets . 'ci4_libraries/DhonRequest.php';
-            $this->dhonrequest = new DhonRequest();
         }
+    }
+
+    /**
+     * Initialize additional data.
+     */
+    private function _initData()
+    {
+        $this->data['assets']       = $this->assets;
+        $this->data['git_assets']   = $this->git_assets;
     }
 }
