@@ -1,3 +1,7 @@
+# Main Features
+
+You can see the features in [Features](./Features.md).
+
 # Start
 
 For start, please read our documentation first in [Intro](./user_guide/Intro.md).
