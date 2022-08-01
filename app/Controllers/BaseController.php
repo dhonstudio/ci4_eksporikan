@@ -65,7 +65,14 @@ abstract class BaseController extends Controller
      *
      * @var string[]
      */
-    protected $api_auth = ['dev_username', 'dev_password'];
+    protected $api_auth = ['admin', 'admin'];
+
+    /**
+     * Key for identifying Landing Page.
+     *
+     * @var string
+     */
+    protected $webKey = 'q2pW3U1NjB5eIYhKvktzAMm4iQsF8Tb0';
 
     /**
      * Enabler page hit traffic.
@@ -131,6 +138,16 @@ abstract class BaseController extends Controller
             'whatsapp_link' => 'https://wa.me/6287700889913',
             'github'        => 'https://github.com/dhonstudio',
             'instagram'     => 'https://instagram.com/dhonstudio',
+
+            'css'   => '
+                <link rel="stylesheet" href="' . $this->assets . 'vendor/templatemo_538_digital_trend/css/bootstrap.min.css">
+                <link rel="stylesheet" href="' . $this->assets . 'vendor/templatemo_538_digital_trend/css/font-awesome.min.css">
+                <link rel="stylesheet" href="' . $this->assets . 'vendor/templatemo_538_digital_trend/css/aos.css">
+                <link rel="stylesheet" href="' . $this->assets . 'vendor/templatemo_538_digital_trend/css/owl.carousel.min.css">
+                <link rel="stylesheet" href="' . $this->assets . 'vendor/templatemo_538_digital_trend/css/owl.theme.default.min.css">
+
+                <link rel="stylesheet" href="' . $this->assets . 'vendor/templatemo_538_digital_trend/css/templatemo-digital-trend.css">
+            ',
         ];
 
         $this->_initData();

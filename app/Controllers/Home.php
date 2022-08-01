@@ -15,16 +15,15 @@ class Home extends BaseController
 
     public function index()
     {
-        $this->data['css'] = '
-            <link rel="stylesheet" href="' . $this->assets . 'vendor/templatemo_538_digital_trend/css/bootstrap.min.css">
-            <link rel="stylesheet" href="' . $this->assets . 'vendor/templatemo_538_digital_trend/css/font-awesome.min.css">
-            <link rel="stylesheet" href="' . $this->assets . 'vendor/templatemo_538_digital_trend/css/aos.css">
-            <link rel="stylesheet" href="' . $this->assets . 'vendor/templatemo_538_digital_trend/css/owl.carousel.min.css">
-            <link rel="stylesheet" href="' . $this->assets . 'vendor/templatemo_538_digital_trend/css/owl.theme.default.min.css">
-
-            <link rel="stylesheet" href="' . $this->assets . 'vendor/templatemo_538_digital_trend/css/templatemo-digital-trend.css">
-        ';
+        $this->data['content'] = $this->dhonrequest->get("landingpagecontent/getAllByKey?webKey={$this->webKey}")['data'];
 
         return view('home', $this->data);
+    }
+
+    public function contact()
+    {
+        $this->data['content'] = $this->dhonrequest->get("landingpagecontent/getAllByKey?webKey={$this->webKey}")['data'];
+
+        return view('contact', $this->data);
     }
 }
