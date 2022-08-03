@@ -13,10 +13,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="#about" class="nav-link smoothScroll"><?= $content[array_search('Section: About', array_column($content, 'contentName'))]['contentValue'] ?></a>
+                    <a href="#about" class="nav-link smoothScroll"><?= $content[array_search('Menu: About', array_column($content, 'contentName'))]['contentValue'] ?></a>
                 </li>
                 <li class="nav-item">
-                    <a href="#project" class="nav-link smoothScroll"><?= $content[array_search('Section: Projects', array_column($content, 'contentName'))]['contentValue'] ?></a>
+                    <a href="#project" class="nav-link smoothScroll"><?= $content[array_search('Menu: Projects', array_column($content, 'contentName'))]['contentValue'] ?></a>
                 </li>
                 <li class="nav-item">
                     <a href="blog.html" class="nav-link">Blog</a>
