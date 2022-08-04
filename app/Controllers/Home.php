@@ -15,7 +15,9 @@ class Home extends BaseController
 
     public function index()
     {
-        $content = $this->dhonrequest->get("landingpagecontent/getAllByKey?webKey={$this->webKey}")['data'];
+        $pageKey = "z0pW3U1NjBdRIYhKvktzAMm4iQsF8TfR";
+
+        $content = $this->dhonrequest->get("landingpagecontent/getAllByKey?pageKey={$pageKey}")['data'];
 
         $this->data['content']  = $content;
         $this->data['title']    = $content[array_search('Title', array_column($content, 'contentName'))]['contentValue'];
