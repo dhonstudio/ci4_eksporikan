@@ -7,7 +7,7 @@
     <?= $this->include('layouts/topbar'); ?>
 
     <!-- HERO -->
-    <section class="hero hero-bg d-flex justify-content-center align-items-center">
+    <section class="hero hero-bg d-flex justify-content-center align-items-center" style="background:linear-gradient(170deg, <?= $content[array_search('Main: Color', array_column($content, 'contentName'))]['contentValue'] ?> 64%, white 30%)">
         <div class="container">
             <div class="row">
 
@@ -24,8 +24,7 @@
 
                 <div class="col-lg-6 col-12">
                     <div class="hero-image" data-aos="fade-up" data-aos-delay="300">
-
-                        <img src="<?= $assets . 'vendor/templatemo_538_digital_trend/' ?>images/working-girl.png" class="img-fluid" alt="working girl">
+                        <img src="<?= $webadmin_assets . $pageKey . '/' . $content[array_search('Main: Picture', array_column($content, 'contentName'))]['contentValue'] ?>" class="img-fluid" alt="<?= $content[array_search('Main: Picture', array_column($content, 'contentName'))]['contentValue'] ?>">
                     </div>
                 </div>
 
@@ -42,9 +41,12 @@
                 <div class="col-lg-7 mx-auto col-md-10 col-12">
                     <div class="about-info">
 
-                        <h2 class="mb-4" data-aos="fade-up"><?= $content[array_search('About: Title', array_column($content, 'contentName'))]['contentValue'] ?></h2>
+                        <h2 class="mb-4" data-aos="fade-up">
+                            <?= $content[array_search('About: Title', array_column($content, 'contentName'))]['contentValue'] ?>
+                        </h2>
 
-                        <p class="mb-0" data-aos="fade-up"><?= $content[array_search('About: Text', array_column($content, 'contentName'))]['contentValue'] ?>
+                        <p class="mb-0" data-aos="fade-up">
+                            <?= $content[array_search('About: Text', array_column($content, 'contentName'))]['contentValue'] ?>
                         </p>
                     </div>
 
@@ -67,20 +69,19 @@
                 <div class="col-lg-12 col-12">
 
                     <h2 class="mb-5 text-center" data-aos="fade-up">
-                        Please take a look through our
-                        <strong>featured Digital Trends</strong>
+                        <?= $content[array_search('Experience: Title', array_column($content, 'contentName'))]['contentValue'] ?>
                     </h2>
 
                     <div class="owl-carousel owl-theme" id="project-slide">
                         <div class="item project-wrapper" data-aos="fade-up" data-aos-delay="100">
-                            <img src="<?= $assets . 'vendor/templatemo_538_digital_trend/' ?>images/project/project-image01.jpg" class="img-fluid" alt="project image">
+                            <img src="<?= $webadmin_assets . $pageKey . '/' . $content[array_search('First Experience: Picture', array_column($content, 'contentName'))]['contentValue'] ?>" class="img-fluid" alt="<?= $content[array_search('First Experience: Picture', array_column($content, 'contentName'))]['contentValue'] ?>">
 
                             <div class="project-info">
-                                <small>Marketing</small>
+                                <small><?= $content[array_search('First Experience: Topic', array_column($content, 'contentName'))]['contentValue'] ?></small>
 
                                 <h3>
-                                    <a href="project-detail.html">
-                                        <span>Sweet Go Agency</span>
+                                    <a href="<?= $content[array_search('First Experience: URL', array_column($content, 'contentName'))]['contentValue'] ?>">
+                                        <span><?= $content[array_search('First Experience: Title', array_column($content, 'contentName'))]['contentValue'] ?></span>
                                         <i class="fa fa-angle-right project-icon"></i>
                                     </a>
                                 </h3>
@@ -88,14 +89,14 @@
                         </div>
 
                         <div class="item project-wrapper" data-aos="fade-up">
-                            <img src="<?= $assets . 'vendor/templatemo_538_digital_trend/' ?>images/project/project-image02.jpg" class="img-fluid" alt="project image">
+                            <img src="<?= $webadmin_assets . $pageKey . '/' . $content[array_search('Second Experience: Picture', array_column($content, 'contentName'))]['contentValue'] ?>" class="img-fluid" alt="<?= $content[array_search('Second Experience: Picture', array_column($content, 'contentName'))]['contentValue'] ?>">
 
                             <div class="project-info">
-                                <small>Website</small>
+                                <small><?= $content[array_search('Second Experience: Topic', array_column($content, 'contentName'))]['contentValue'] ?></small>
 
                                 <h3>
-                                    <a href="project-detail.html">
-                                        <span>Smart Ladies</span>
+                                    <a href="<?= $content[array_search('Second Experience: URL', array_column($content, 'contentName'))]['contentValue'] ?>">
+                                        <span><?= $content[array_search('Second Experience: Title', array_column($content, 'contentName'))]['contentValue'] ?></span>
                                         <i class="fa fa-angle-right project-icon"></i>
                                     </a>
                                 </h3>
@@ -103,14 +104,14 @@
                         </div>
 
                         <div class="item project-wrapper" data-aos="fade-up">
-                            <img src="<?= $assets . 'vendor/templatemo_538_digital_trend/' ?>images/project/project-image03.jpg" class="img-fluid" alt="project image">
+                            <img src="<?= $webadmin_assets . $pageKey . '/' . $content[array_search('Third Experience: Picture', array_column($content, 'contentName'))]['contentValue'] ?>" class="img-fluid" alt="<?= $content[array_search('Third Experience: Picture', array_column($content, 'contentName'))]['contentValue'] ?>">
 
                             <div class="project-info">
-                                <small>Branding</small>
+                                <small><?= $content[array_search('Third Experience: Topic', array_column($content, 'contentName'))]['contentValue'] ?></small>
 
                                 <h3>
-                                    <a href="project-detail.html">
-                                        <span>Shoes factory</span>
+                                    <a href="<?= $content[array_search('Third Experience: URL', array_column($content, 'contentName'))]['contentValue'] ?>">
+                                        <span><?= $content[array_search('Third Experience: Title', array_column($content, 'contentName'))]['contentValue'] ?></span>
                                         <i class="fa fa-angle-right project-icon"></i>
                                     </a>
                                 </h3>
@@ -118,14 +119,14 @@
                         </div>
 
                         <div class="item project-wrapper" data-aos="fade-up">
-                            <img src="<?= $assets . 'vendor/templatemo_538_digital_trend/' ?>images/project/project-image04.jpg" class="img-fluid" alt="project image">
+                            <img src="<?= $webadmin_assets . $pageKey . '/' . $content[array_search('Fourth Experience: Picture', array_column($content, 'contentName'))]['contentValue'] ?>" class="img-fluid" alt="<?= $content[array_search('Fourth Experience: Picture', array_column($content, 'contentName'))]['contentValue'] ?>">
 
                             <div class="project-info">
-                                <small>Social Media</small>
+                                <small><?= $content[array_search('Fourth Experience: Topic', array_column($content, 'contentName'))]['contentValue'] ?></small>
 
                                 <h3>
-                                    <a href="project-detail.html">
-                                        <span>Race Bicycle</span>
+                                    <a href="<?= $content[array_search('Fourth Experience: URL', array_column($content, 'contentName'))]['contentValue'] ?>">
+                                        <span><?= $content[array_search('Fourth Experience: Title', array_column($content, 'contentName'))]['contentValue'] ?></span>
                                         <i class="fa fa-angle-right project-icon"></i>
                                     </a>
                                 </h3>
@@ -133,53 +134,20 @@
                         </div>
 
                         <div class="item project-wrapper" data-aos="fade-up">
-                            <img src="<?= $assets . 'vendor/templatemo_538_digital_trend/' ?>images/project/project-image05.jpg" class="img-fluid" alt="project image">
+                            <img src="<?= $webadmin_assets . $pageKey . '/' . $content[array_search('Fifth Experience: Picture', array_column($content, 'contentName'))]['contentValue'] ?>" class="img-fluid" alt="<?= $content[array_search('Fifth Experience: Picture', array_column($content, 'contentName'))]['contentValue'] ?>">
 
                             <div class="project-info">
-                                <small>Video</small>
+                                <small><?= $content[array_search('Fifth Experience: Topic', array_column($content, 'contentName'))]['contentValue'] ?></small>
 
                                 <h3>
-                                    <a href="project-detail.html">
-                                        <span>Ultimate HealthCare</span>
+                                    <a href="<?= $content[array_search('Fifth Experience: URL', array_column($content, 'contentName'))]['contentValue'] ?>">
+                                        <span><?= $content[array_search('Fifth Experience: Title', array_column($content, 'contentName'))]['contentValue'] ?></span>
                                         <i class="fa fa-angle-right project-icon"></i>
                                     </a>
                                 </h3>
                             </div>
                         </div>
                     </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-    <!-- TESTIMONIAL -->
-    <section class="testimonial section-padding">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-6 col-md-5 col-12">
-                    <div class="contact-image" data-aos="fade-up">
-
-                        <img src="<?= $assets . 'vendor/templatemo_538_digital_trend/' ?>images/female-avatar.png" class="img-fluid" alt="website">
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-7 col-12">
-                    <h4 class="my-5 pt-3" data-aos="fade-up" data-aos-delay="100">Client Testimonials</h4>
-
-                    <div class="quote" data-aos="fade-up" data-aos-delay="200"></div>
-
-                    <h2 class="mb-4" data-aos="fade-up" data-aos-delay="300">Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo.</h2>
-
-                    <p data-aos="fade-up" data-aos-delay="400">
-                        <strong>Mary Zoe</strong>
-
-                        <span class="mx-1">/</span>
-
-                        <small>Digital Agency (CEO)</small>
-                    </p>
                 </div>
 
             </div>

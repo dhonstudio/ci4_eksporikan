@@ -47,6 +47,13 @@ abstract class BaseController extends Controller
     protected $assets = 'http://localhost/assets/';
 
     /**
+     * Webadmin Assets path.
+     *
+     * @var string
+     */
+    protected $webadmin_assets = 'http://localhost/ci4_webadmin/public/uploads/';
+
+    /**
      * Git assets path.
      *
      * @var string
@@ -178,7 +185,8 @@ abstract class BaseController extends Controller
      */
     private function _initData()
     {
-        $this->data['assets']       = $this->assets;
-        $this->data['git_assets']   = $this->git_assets;
+        $this->data['assets']           = $this->assets;
+        $this->data['git_assets']       = $this->git_assets;
+        $this->data['webadmin_assets']  = $this->webadmin_assets;
     }
 }

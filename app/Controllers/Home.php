@@ -20,6 +20,7 @@ class Home extends BaseController
         $content = $this->dhonrequest->get("landingpagecontent/getAllByKey?pageKey={$pageKey}")['data'];
 
         $this->data['content']  = $content;
+        $this->data['pageKey']  = $pageKey;
         $this->data['title']    = $content[array_search('Title', array_column($content, 'contentName'))]['contentValue'];
 
         return view('home', $this->data);
