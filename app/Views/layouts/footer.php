@@ -57,6 +57,15 @@
                     <?php if ($content[array_search('Social: Twitter', array_column($content, 'contentName'))]['contentValue'] != "") : ?>
                         <li><a href="https://twitter.com/<?= $content[array_search('Social: Twitter', array_column($content, 'contentName'))]['contentValue'] ?>" target="_blank" class="fa fa-twitter"></a></li>
                     <?php endif ?>
+                    <?php if ($content[array_search('Social: Facebook', array_column($content, 'contentName'))]['contentValue'] != "") : ?>
+                        <li><a href="https://facebook.com/<?= $content[array_search('Social: facebook', array_column($content, 'contentName'))]['contentValue'] ?>" target="_blank" class="fa fa-facebook"></a></li>
+                    <?php endif ?>
+                    <?php if ($content[array_search('Social: Whatsapp', array_column($content, 'contentName'))]['contentValue'] != "") : ?>
+                        <li><a href="https://wa.me/<?= $content[array_search('Social: Whatsapp', array_column($content, 'contentName'))]['contentValue'] ?>" target="_blank" class="fa fa-whatsapp"></a></li>
+                    <?php endif ?>
+                    <?php if ($content[array_search('Social: LinkedIn', array_column($content, 'contentName'))]['contentValue'] != "") : ?>
+                        <li><a href="https://linkedin.com/<?= $content[array_search('Social: LinkedIn', array_column($content, 'contentName'))]['contentValue'] ?>" target="_blank" class="fa fa-linkedin"></a></li>
+                    <?php endif ?>
                 </ul>
             </div>
 

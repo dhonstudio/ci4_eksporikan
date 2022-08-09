@@ -16,10 +16,10 @@
                     <a href="#about" class="nav-link smoothScroll"><?= $content[array_search('Menu: About', array_column($content, 'contentName'))]['contentValue'] ?></a>
                 </li>
                 <li class="nav-item">
-                    <a href="#project" class="nav-link smoothScroll"><?= $content[array_search('Menu: Projects', array_column($content, 'contentName'))]['contentValue'] ?></a>
+                    <a href="#project" class="nav-link smoothScroll"><?= $content[array_search('Menu: Experience', array_column($content, 'contentName'))]['contentValue'] ?></a>
                 </li>
                 <li class="nav-item">
-                    <a href="blog.html" class="nav-link">Blog</a>
+                    <a href="<?= base_url() . "/" . $content[array_search('Menu: Projects URL', array_column($content, 'contentName'))]['contentValue'] ?>" class="nav-link"><?= $content[array_search('Menu: Projects', array_column($content, 'contentName'))]['contentValue'] ?></a>
                 </li>
                 <li class="nav-item">
                     <a href="<?= base_url('contact') ?>" class="nav-link contact">Contact</a>
